@@ -6,37 +6,41 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/25 17:26:37 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/08/29 17:50:32 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : type("Cat") {
+Cat::Cat() {
+    _type = "Cat";
     std::cout << "Cat constructor called" << std::endl;
-};
+    mybrain = new Brain;
+}
 
-Cat::Cat(const Cat &other) : Animal() {
+Cat::Cat(const Cat &other) : Animal(other) {
     std::cout << "Cat copy constructor called" << std::endl;
-    type=other.type;
+    _type=other._type;
+    mybrain = new Brain(*other.mybrain);
 }
 
 Cat& Cat::operator=(const Cat &other) {
     std::cout << "Cat copy assignement operator called" << std::endl;
     if (this != &other){
-        type = other.type;
+        _type = other._type;
+        *mybrain = *other.mybrain;
     }
     return *this;
-};
+}
 
 Cat::~Cat(){
     std::cout << "Cat destructor called" << std::endl;
-}; 
+}
 
 std::string Cat::getType(void) const {
-    return type;
+    return _type;
 }
 
 void Cat::makeSound(void) const{
     std::cout << "Meow Meow!" << std::endl;
-};
+}

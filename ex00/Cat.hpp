@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/25 03:39:49 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/08/29 16:44:09 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,6 @@ class Cat : public Animal {
         
         std::string getType() const;
         void makeSound() const;
-
-    protected:
-        std::string type;
 };
 
 #endif

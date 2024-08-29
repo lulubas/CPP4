@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/25 17:22:37 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/08/29 16:52:14 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ class WrongAnimal {
         virtual ~WrongAnimal();
         
         std::string getType() const;
-        virtual void makeSound() const;
+        void makeSound() const;
                
     protected:
-        std::string type;
+        std::string _type;
 };
 
 #endif

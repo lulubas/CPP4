@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/25 03:34:54 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/08/29 16:43:56 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ class WrongCat : public WrongAnimal {
         ~WrongCat();
 
         void makeSound() const;
-
-    protected:
-        std::string type;
 };
 
 #endif

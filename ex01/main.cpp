@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 02:14:20 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/25 17:25:29 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/08/29 17:58:19 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,37 +20,22 @@ int main() {
     std::cout << "CONSTRUCTORS" << std::endl;
     std::cout << "==============" << std::endl;
 
-    const Animal* a = new Animal();
-    const Animal* d = new Dog();
-    const Animal* c = new Cat();
-    const WrongAnimal* wc = new WrongCat();
+    int i;
+    Animal* myanimals[6];
+    for (i = 0; i < 6; i++) {
+        if (i % 2)
+            myanimals[i] = new Dog;
+        else
+            myanimals[i] = new Cat;            
+    }
 
     std::cout << "==============" << std::endl;
-    std::cout << "GET_TYPE" << std::endl;
+    std::cout << "GET TYPE" << std::endl;
     std::cout << "==============" << std::endl;
 
-    std::cout << a->getType() << " " << std::endl;
-    std::cout << d->getType() << " " << std::endl;
-    std::cout << c->getType() << " " << std::endl;
-    std::cout << wc->getType() << " " << std::endl;
-    
-    std::cout << "==============" << std::endl;
-    std::cout << "MAKE_SOUND" << std::endl;
-    std::cout << "==============" << std::endl;
-    
-    a->makeSound();
-    d->makeSound();
-    c->makeSound();
-    wc->makeSound();
-
-    std::cout << "==============" << std::endl;
-    std::cout << "DESTRUCTORS" << std::endl;
-    std::cout << "==============" << std::endl;
-
-    delete a;
-    delete d;
-    delete c;
-    delete wc;
+    for (i = 0; i < 6; i++) {
+        myanimals[i]->getType();     
+    }
 
     return 0;
 }
