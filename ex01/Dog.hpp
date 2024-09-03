@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/08/29 17:48:47 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/03 06:20:02 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ class Dog : public Animal {
         
         std::string getType() const;
         void makeSound() const;
+        std::string getBrainIdea(int i) const;
     
     private:
-        Brain *mybrain;
+        Brain *_mybrain;
 };
 
 #endif

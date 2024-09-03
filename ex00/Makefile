@@ -6,7 +6,7 @@
 #    By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 17:07:24 by lbastien          #+#    #+#              #
-#    Updated: 2024/07/25 03:03:32 by lbastien         ###   ########.fr        #
+#    Updated: 2024/09/03 06:30:07 by lbastien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ run: all
 	$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
 
 # Link object files into the target executable
-$(TARGET): $(OBJ)
+$(TARGET): $(OBJ) Makefile
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(TARGET)
 
 # Clean up objects and dependency files

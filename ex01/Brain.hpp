@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:37:04 by lbastien          #+#    #+#             */
-/*   Updated: 2024/08/29 17:16:20 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/03 06:36:52 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include<string>
 #include<iostream>
+#include <sstream>
+
+std::string iToString(const int i);
 
 class Brain {
     public:
@@ -22,9 +25,11 @@ class Brain {
         Brain(const Brain &other);
         Brain& operator=(const Brain &other);
         ~Brain();
+
+        std::string getIdea(int i);
         
     private:
-        std::string ideas[100];
+        std::string _ideas[100];
 };
 
 #endif

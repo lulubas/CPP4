@@ -6,13 +6,12 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 02:14:20 by lbastien          #+#    #+#             */
-/*   Updated: 2024/08/29 17:58:19 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/03 06:44:09 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
 
 int main() {
     
@@ -21,6 +20,7 @@ int main() {
     std::cout << "==============" << std::endl;
 
     int i;
+    
     Animal* myanimals[6];
     for (i = 0; i < 6; i++) {
         if (i % 2)
@@ -34,7 +34,54 @@ int main() {
     std::cout << "==============" << std::endl;
 
     for (i = 0; i < 6; i++) {
-        myanimals[i]->getType();     
+        std::cout << myanimals[i]->getType();
+        std::cout << " idea[" << i << "] = " << myanimals[i]->getBrainIdea(i) << std::endl;
+    }
+
+    std::cout << "==============" << std::endl;
+    std::cout << "DELETE 1 & 2" << std::endl;
+    std::cout << "==============" << std::endl;
+
+    for (i = 0; i < 2; i++) {
+        delete myanimals[i];
+        myanimals[i] = NULL;    
+    }
+
+    std::cout << "==============" << std::endl;
+    std::cout << "GET TYPE" << std::endl;
+    std::cout << "==============" << std::endl;
+
+    for (i = 0; i < 6; i++) {
+        if (myanimals[i]) {
+            std::cout << myanimals[i]->getType();
+            std::cout << " idea[" << i << "] = " << myanimals[i]->getBrainIdea(i) << std::endl;
+        }
+        else {
+            std::cout << "Animal Deleted" << std::endl;
+        }
+    }
+
+    std::cout << "==============" << std::endl;
+    std::cout << "DELETE 3 > 6" << std::endl;
+    std::cout << "==============" << std::endl;
+
+    for (i = 2; i < 6; i++) {
+        delete myanimals[i];
+        myanimals[i] = NULL;    
+    }
+
+        std::cout << "==============" << std::endl;
+    std::cout << "GET TYPE" << std::endl;
+    std::cout << "==============" << std::endl;
+
+    for (i = 0; i < 6; i++) {
+        if (myanimals[i]) {
+            std::cout << myanimals[i]->getType();
+            std::cout << " idea[" << i << "] = " << myanimals[i]->getBrainIdea(i) << std::endl;
+        }
+        else {
+            std::cout << "Animal Deleted" << std::endl;
+        }
     }
 
     return 0;
