@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/03 06:13:39 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/03 11:07:13 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 Animal::Animal() : _type("Animal") {
     std::cout << "Animal constructor called" << std::endl;
 }
-
 
 Animal::Animal(const Animal &other) {
     std::cout << "Animal copy constructor called" << std::endl;

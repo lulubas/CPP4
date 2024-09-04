@@ -6,14 +6,14 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/03 09:04:07 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/03 11:27:54 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
 AMateria::AMateria() : _type("amateria") {
-    std::cout << "AMateria constructor called" << std::endl;
+    std::cout << "AMateria default constructor called" << std::endl;
 }
 
 AMateria::AMateria(std::string& type) : _type("type") {
@@ -28,9 +28,6 @@ AMateria::AMateria(const AMateria& other) {
 
 AMateria& AMateria::operator=(const AMateria &other) {
     std::cout << "AMateria copy assignement operator called" << std::endl;
-    if (this != &other){
-        _type = other._type;
-    }
     return *this;
 }
 
@@ -43,5 +40,5 @@ std::string const &AMateria::getType(void) const {
 }
 
 void AMateria::use(ICharacter& target) {
-    std::cout << "Is confused with what to do to " << target->getName() <<std::endl;
+    std::cout << "Is confused with what to do to " << target.getName() <<std::endl;
 }

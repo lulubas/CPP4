@@ -1,28 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
+/*   IMateriaSource.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/03 11:33:07 by lbastien         ###   ########.fr       */
+/*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
+/*   Updated: 2024/09/03 11:31:22 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_HPP
-#define IMATERIASOURCE_HPP
+#include "IMateriaSource.hpp"
 
-#include "AMateria.hpp"
-
-#include<string>
-#include<iostream>
-
-class IMateriaSource {
-    public:
-        virtual ~IMateriaSource() {}
-        virtual void learnMateria(AMateria*) = 0;
-        virtual AMateria* createMateria(std::string const & type) = 0;   
-};
-
-#endif
+IMateriaSource::~IMateriaSource() {
+    std::cout << "IMateriaSource destructor called" << std::endl;
+}

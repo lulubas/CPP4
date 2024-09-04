@@ -6,24 +6,27 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/03 09:12:53 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/03 16:20:14 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATERIA_HPP
-#define MATERIA_HPP
+#ifndef IMATERIA_HPP
+#define IMATERIA_HPP
 
-#include "IMateriaSource.hpp"
-
-#include<string>
-#include<iostream>
+#include "IMateriaSource.hpp"s
 
 class MateriaSource : public IMateriaSource {
-    public:
+    private:
+        AMateria* _materias[4];
         
+    public:
+        MateriaSource();
+        MateriaSource(std::string& name);
+        MateriaSource(const MateriaSource &other);
+        MateriaSource& operator=(const MateriaSource &other);
         ~MateriaSource();
         
-        void learnMateria(AMateria*);
+        void learnMateria(AMateria* materia);
         AMateria* createMateria(std::string const & type);   
 };
 

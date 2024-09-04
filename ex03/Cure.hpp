@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/03 11:34:30 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/03 10:43:18 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef CURE_HPP
+#define CURE_HPP
 
-#include "ICharacter.hpp"
+#include "AMateria.hpp"
 
-class Character : public ICharacter {
+class Cure : public AMateria {
     private:
-        std::string _name;
-        AMateria* _materias[4];
-        
+        std::string _type;
+
     public:
-        Character();
-        Character(std::string& name);
-        Character(const Character &other);
-        Character& operator=(const Character &other);
-        ~Character();
-        
-        std::string const & getName() const;
-        void equip(AMateria* m);
-        void unequip(int idx);
-        void use(int idx, ICharacter& target);    
+        Cure();
+        Cure(std::string& type);
+        Cure(const Cure &other);
+        Cure& operator=(const AMateria &other);
+        ~Cure();
+                
+        Cure* clone() const;
+        void use(ICharacter& target);
 };
 
 #endif
