@@ -6,13 +6,13 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/04 15:23:37 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/04 22:35:14 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure() : _type("Cure") {
+Cure::Cure() : _type("cure") {
     std::cout << "Cure default constructor called" << std::endl;
 }
 
@@ -30,6 +30,10 @@ Cure& Cure::operator=(const Cure &other) {
 
 Cure::~Cure(){
     std::cout << "Cure destructor called" << std::endl;
+}
+
+std::string const & Cure::getType(void) const {
+    return _type;
 }
 
 Cure* Cure::clone() const {

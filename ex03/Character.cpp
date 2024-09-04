@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/04 16:28:53 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/04 22:36:07 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ Character::Character() : _name("character") {
     }
 }
 
-Character::Character(const std::string name) {
+Character::Character(const std::string name) : _name (name) {
     std::cout << "Character parameterized constructor called" << std::endl;
-    _name = name;
     int i;
     for (i = 0; i < 4; i++) {
         _materias[i] = NULL;
@@ -33,9 +32,11 @@ Character::Character(const std::string name) {
 Character::Character(const Character& other) {
     std::cout << "Character copy constructor called" << std::endl;
     int i;
-    _name=other._name;
     for (i = 0; i < 4; i++) {
-        *_materias[i] = *other._materias[i];
+        if (other._materias[i]) 
+                _materias[i] = other._materias[i]->clone();
+        else
+            _materias[i] = NULL;
     }
 }
 
@@ -45,7 +46,7 @@ Character& Character::operator=(const Character &other) {
     for (i = 0; i < 4; i++) {
         if (_materias[i])
             delete _materias[i];
-        *_materias[i] = *other._materias[i];
+        _materias[i] = other._materias[i]->clone();
     }
     return *this;
 }
@@ -54,8 +55,10 @@ Character::~Character(){
     std::cout << "Character destructor called" << std::endl;
     int i;
     for (i = 0; i < 4; i++) {
-        if (_materias[i])
+        if (_materias[i]) {
             delete _materias[i];
+            _materias[i] = NULL;
+        }
     }
 }
 
@@ -66,10 +69,10 @@ std::string const &Character::getName() const {
 void Character::equip(AMateria* m) {
     int i;
     for (i = 0; i < 4; i++) {
-        if (_materias[i])
-            continue;
-        _materias[i] = m;
-        break;
+        if (_materias[i] == NULL) {
+            _materias[i] = m;
+            break;
+        }
     }
 }
 

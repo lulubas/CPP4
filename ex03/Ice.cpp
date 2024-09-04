@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/04 15:09:12 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/04 19:33:02 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,12 @@ Ice::~Ice(){
     std::cout << "Ice destructor called" << std::endl;
 }
 
+std::string const &Ice::getType(void) const {
+    return _type;
+}
+
 Ice* Ice::clone() const {
-    Ice* newClone = new Ice;
+    Ice* newClone = new Ice();
     return(newClone);
 }
 

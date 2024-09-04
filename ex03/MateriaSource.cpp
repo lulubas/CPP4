@@ -6,13 +6,13 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/04 16:14:30 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/04 22:34:05 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource() {
+MateriaSource::MateriaSource() : _numMaterias(0) {
     std::cout << "MateriaSource default constructor called" << std::endl;
     int i;
     for (i = 0; i < 4; i++) {
@@ -20,22 +20,24 @@ MateriaSource::MateriaSource() {
     }
 }
 
-MateriaSource::MateriaSource(const MateriaSource& other) {
+MateriaSource::MateriaSource(const MateriaSource& other) : _numMaterias(0) {
     std::cout << "MateriaSource copy constructor called" << std::endl;
     int i;
     for (i = 0; i < 4; i++) {
-        *_materias[i] = *other._materias[i];
+        if (other._materias[i]) 
+                _materias[i] = other._materias[i]->clone();
+        else
+            _materias[i] = NULL;
     }
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource &other) {
     std::cout << "MateriaSource copy assignement operator called" << std::endl;
-    
     int i;
     for (i = 0; i < 4; i++) {
         if (_materias[i])
             delete _materias[i];
-        *_materias[i] = *other._materias[i];
+        _materias[i] = other._materias[i]->clone();
     }
     return *this;
 }
@@ -52,14 +54,10 @@ MateriaSource::~MateriaSource() {
 }
 
 void MateriaSource::learnMateria(AMateria* materia) {
-    int i;
-    for (i = 0; i < 4; i++) {
-        std::cout << "LOOP" << std::endl;
-        if (_materias[i])
-            continue;
-        _materias[i] = materia->clone();
-        break;
-    }   
+    if (_numMaterias < 4 && materia) {
+        _materias[_numMaterias++] = materia->clone();
+        delete materia;
+    }
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type) {
@@ -71,4 +69,11 @@ AMateria* MateriaSource::createMateria(std::string const & type) {
             return(_materias[i]->clone());
     }
     return (NULL);
+}
+
+std::string MateriaSource::checkMateria(int i) const {
+    if (_materias[i])
+        return (_materias[i]->getType());
+    else
+        return ("NO MATERIAS FOUND");
 }

@@ -6,19 +6,19 @@
 #    By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 17:07:24 by lbastien          #+#    #+#              #
-#    Updated: 2024/09/04 16:03:34 by lbastien         ###   ########.fr        #
+#    Updated: 2024/09/05 00:57:36 by lbastien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compiler settings
-CXX = g++
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
+CXX = c++
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 # Target executable name
 TARGET = animals
 
 # Source, Object, Dependency files
-SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp ICharacter.cpp Character.cpp IMateriaSource.cpp MateriaSource.cpp
+SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp ICharacter.cpp Character.cpp IMateriaSource.cpp MateriaSource.cpp MateriaNode.cpp MateriaList.cpp
 OBJ = $(SRC:.cpp=.o)
 DEP = $(OBJ:.o=.d)
 
