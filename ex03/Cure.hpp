@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/03 10:43:18 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:09:20 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Cure : public AMateria {
         Cure();
         Cure(std::string& type);
         Cure(const Cure &other);
-        Cure& operator=(const AMateria &other);
+        Cure& operator=(const Cure &other);
         ~Cure();
                 
         Cure* clone() const;

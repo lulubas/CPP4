@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/03 10:38:55 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:08:58 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Ice : public AMateria {
         Ice();
         Ice(std::string& type);
         Ice(const Ice &other);
-        Ice& operator=(const AMateria &other);
+        Ice& operator=(const Ice &other);
         ~Ice();
                 
         Ice* clone() const;

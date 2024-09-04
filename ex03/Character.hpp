@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/03 11:34:30 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/04 14:40:48 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Character : public ICharacter {
         
     public:
         Character();
-        Character(std::string& name);
+        Character(const std::string name);
         Character(const Character &other);
         Character& operator=(const Character &other);
         ~Character();

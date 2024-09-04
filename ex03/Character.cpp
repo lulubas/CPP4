@@ -6,11 +6,12 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/03 11:29:05 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:33:26 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include "AMateria.hpp"
 
 Character::Character() : _name("character") {
     std::cout << "Character default constructor called" << std::endl;
@@ -20,8 +21,8 @@ Character::Character() : _name("character") {
     }
 }
 
-Character::Character(std::string& name) : Character() {
-    std::cout << "Character parameerized constructor called" << std::endl;
+Character::Character(const std::string name) {
+    std::cout << "Character parameterized constructor called" << std::endl;
     _name = name;
 }
 

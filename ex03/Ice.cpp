@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/03 11:30:10 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:09:12 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@ Ice::Ice() : _type("ice") {
     std::cout << "Ice default constructor called" << std::endl;
 }
 
-Ice::Ice(const Ice& other) {
+Ice::Ice(const Ice& other) : AMateria() {
     std::cout << "Ice copy constructor called" << std::endl;
+    _type = other._type;
 }
 
 Ice& Ice::operator=(const Ice &other) {
     std::cout << "Ice copy assignement operator called" << std::endl;
+    if (this != &other)
+        AMateria::operator=(other);
     return *this;
 }
 
