@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/03 16:26:43 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:14:30 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ MateriaSource::MateriaSource(const MateriaSource& other) {
 
 MateriaSource& MateriaSource::operator=(const MateriaSource &other) {
     std::cout << "MateriaSource copy assignement operator called" << std::endl;
+    
     int i;
     for (i = 0; i < 4; i++) {
         if (_materias[i])
@@ -53,9 +54,10 @@ MateriaSource::~MateriaSource() {
 void MateriaSource::learnMateria(AMateria* materia) {
     int i;
     for (i = 0; i < 4; i++) {
+        std::cout << "LOOP" << std::endl;
         if (_materias[i])
             continue;
-        *_materias[i] = *materia;
+        _materias[i] = materia->clone();
         break;
     }   
 }
@@ -63,8 +65,10 @@ void MateriaSource::learnMateria(AMateria* materia) {
 AMateria* MateriaSource::createMateria(std::string const & type) {
     int i;
     for (i = 0; i < 4; i++) {
+        if (!_materias[i])
+            break;
         if (_materias[i]->getType() == type)
-            return(_materias[i]);
+            return(_materias[i]->clone());
     }
     return (NULL);
 }

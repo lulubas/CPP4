@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/04 15:33:26 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:28:53 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ Character::Character() : _name("character") {
 Character::Character(const std::string name) {
     std::cout << "Character parameterized constructor called" << std::endl;
     _name = name;
+    int i;
+    for (i = 0; i < 4; i++) {
+        _materias[i] = NULL;
+    }
 }
 
 Character::Character(const Character& other) {
@@ -77,4 +81,11 @@ void Character::unequip(int idx) {
 void Character::use(int idx, ICharacter& target) {
     if (_materias[idx])
             _materias[idx]->use(target);
+}
+
+std::string Character::checkMateria(int i) const {
+    if (_materias[i])
+        return (_materias[i]->getType());
+    else
+        return ("NO MATERIAS FOUND");
 }

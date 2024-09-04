@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/04 15:27:36 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:25:25 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ class ICharacter {
         virtual std::string const & getName() const = 0;
         virtual void equip(AMateria* m) = 0;
         virtual void unequip(int idx) = 0;
-        virtual void use(int idx, ICharacter& target) = 0;    
+        virtual void use(int idx, ICharacter& target) = 0;
+        virtual std::string checkMateria(int i) const = 0;  
 };
 
 #endif

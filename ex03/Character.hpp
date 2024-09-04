@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/04 14:40:48 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:25:19 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Character : public ICharacter {
         void equip(AMateria* m);
         void unequip(int idx);
         void use(int idx, ICharacter& target);    
+        std::string checkMateria(int i) const;
 };
 
 #endif
