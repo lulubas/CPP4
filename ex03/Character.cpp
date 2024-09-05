@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/05 13:06:27 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/05 13:17:54 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void Character::equip(AMateria* m) {
     for (i = 0; i < 4; i++) {
         if (_materias[i] == NULL) {
             _materias[i] = m;
+            std::cout << "Equiped " << m->getType() << " to slot " << i << std::endl;
             return;
         }
     }
@@ -88,6 +89,10 @@ void Character::equip(AMateria* m) {
 }
 
 void Character::unequip(int idx) {
+    if (idx < 0 || idx > 3) {
+        std::cout << "Choose ID between 0 and 3 (incuded)" << std::endl;
+        return;
+    }
         if (_materias[idx]) {
             _leftoverMaterias.addBack(_materias[idx]);
             _materias[idx] = NULL;

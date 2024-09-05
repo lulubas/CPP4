@@ -6,13 +6,13 @@
 #    By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 17:07:24 by lbastien          #+#    #+#              #
-#    Updated: 2024/09/05 12:19:26 by lbastien         ###   ########.fr        #
+#    Updated: 2024/09/05 13:19:42 by lbastien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compiler settings
 CXX = c++
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 # Target executable name
 TARGET = animals
