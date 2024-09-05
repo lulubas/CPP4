@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/05 01:53:30 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/05 13:05:53 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Character : public ICharacter {
     private:
         std::string _name;
         AMateria* _materias[4];
-        MateriaList _unequippedMaterias;
+        MateriaList _leftoverMaterias;
         
     public:
         Character();
@@ -33,7 +33,7 @@ class Character : public ICharacter {
         void equip(AMateria* m);
         void unequip(int idx);
         void use(int idx, ICharacter& target);    
-        std::string checkMateria(int i) const;
+        void checkMateria(int i) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/05 01:55:17 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/05 13:06:27 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,29 +68,44 @@ std::string const &Character::getName() const {
 
 void Character::equip(AMateria* m) {
     int i;
+
+    for (int i = 0; i < 4; i++) {
+        if (_materias[i] == m) {
+            std::cout << "Materia " << m->getType() << " is already equipped!" << std::endl;
+            return;
+        }
+    }
+
     for (i = 0; i < 4; i++) {
         if (_materias[i] == NULL) {
             _materias[i] = m;
-            break;
+            return;
         }
     }
+    std::cout << "No available slots to equip the Materia! " << m->getType() << std::endl; 
+    _leftoverMaterias.addBack(m);
+       
 }
 
 void Character::unequip(int idx) {
         if (_materias[idx]) {
-            _unequippedMaterias.addBack(_materias[idx]);
+            _leftoverMaterias.addBack(_materias[idx]);
             _materias[idx] = NULL;
         }
 }
 
 void Character::use(int idx, ICharacter& target) {
+    if (idx < 0 || idx > 3) {
+        std::cout << "Choose ID between 0 and 3 (incuded)" << std::endl;
+        return;
+    }
     if (_materias[idx])
             _materias[idx]->use(target);
 }
 
-std::string Character::checkMateria(int i) const {
+void Character::checkMateria(int i) const {
     if (_materias[i])
-        return (_materias[i]->getType());
+        std::cout << "Materia is " << _materias[i]->getType() << std::endl;
     else
-        return ("NO MATERIAS FOUND");
+        std::cout << "No Materia found" << std::endl;
 }

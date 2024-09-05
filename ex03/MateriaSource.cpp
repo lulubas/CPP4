@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/04 22:34:05 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/05 13:07:07 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,10 @@ MateriaSource::~MateriaSource() {
 }
 
 void MateriaSource::learnMateria(AMateria* materia) {
-    if (_numMaterias < 4 && materia) {
-        _materias[_numMaterias++] = materia->clone();
-        delete materia;
+    if (materia) {
+        if(_numMaterias < 4)
+            _materias[_numMaterias++] = materia->clone();
+        _leftoverMaterias.addBack(materia);
     }
 }
 
@@ -71,9 +72,9 @@ AMateria* MateriaSource::createMateria(std::string const & type) {
     return (NULL);
 }
 
-std::string MateriaSource::checkMateria(int i) const {
+void MateriaSource::checkMateria(int i) const {
     if (_materias[i])
-        return (_materias[i]->getType());
+        std::cout << "Materia is " << _materias[i]->getType() << std::endl;
     else
-        return ("NO MATERIAS FOUND");
+        std::cout << "No Materia found" << std::endl;
 }

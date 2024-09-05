@@ -5,9 +5,21 @@
 
 int main()
 {
+    int i;
+
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
+    src->learnMateria(new Cure());
+    src->learnMateria(new Cure());
+    src->learnMateria(new Ice());
+
+    std::cout << "==============" << std::endl;
+    std::cout << "MATERIASOURCE" << std::endl;
+    std::cout << "==============" << std::endl;
+    for (i = 0; i < 4; i++)
+        src->checkMateria(i);
+    std::cout << "==============" << std::endl;
 
     ICharacter* me = new Character("me");
 
@@ -16,11 +28,34 @@ int main()
     me->equip(tmp);
     tmp = src->createMateria("cure");
     me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+
+    std::cout << "==============" << std::endl;
+    std::cout << "CHARACTER" << std::endl;
+    std::cout << "==============" << std::endl;
+
+    for (i = 0; i < 4; i++)
+        src->checkMateria(i);
+
+    std::cout << "==============" << std::endl;
 
     ICharacter* bob = new Character("bob");
 
-    me->use(0, *bob);
-    me->use(1, *bob);
+    std::cout << "==============" << std::endl;
+    std::cout << "CHARACTER USE" << std::endl;
+    std::cout << "==============" << std::endl;
+    for (i = 0; i < 5; i++)
+        me->use(i, *bob);
+    std::cout << "==============" << std::endl;
+
+    std::cout << "==============" << std::endl;
+    std::cout << "DESTRUCTORS" << std::endl;
+    std::cout << "==============" << std::endl;
     
     delete bob;
     delete me;
