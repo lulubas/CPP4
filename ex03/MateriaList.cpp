@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/05 01:49:43 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/05 01:58:50 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ MateriaList::MateriaList(const MateriaList& other) : _head(NULL) {
 MateriaList& MateriaList::operator=(const MateriaList &other) {
     std::cout << "MateriaList copy assignement operator called" << std::endl;
     if (this != &other) {
-        MateriaNode* current;
+        MateriaNode* current = _head;
         while (current) {
             MateriaNode* toDelete = current;
             current = current->getNext();

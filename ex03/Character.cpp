@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/09/04 22:36:07 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/09/05 01:55:17 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,10 @@ void Character::equip(AMateria* m) {
 }
 
 void Character::unequip(int idx) {
-        if (_materias[idx])
+        if (_materias[idx]) {
+            _unequippedMaterias.addBack(_materias[idx]);
             _materias[idx] = NULL;
+        }
 }
 
 void Character::use(int idx, ICharacter& target) {
